@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default() => {
+const Form = props => {
     //Create variables, getters, and setters to persist form data
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
@@ -12,7 +12,17 @@ export default() => {
         //Prevent default refresh
         e.preventDefault()
 
+        //Create user object
         const newUser = { firstName, lastName, email, password, confirmPassword }
+
+        console.log(newUser)
+
+        //Clear form data
+        setFirstName("")
+        setLastName("")
+        setEmail("")
+        setPassword("")
+        setConfirmPassword("")
     }
 
     return (
@@ -52,3 +62,5 @@ export default() => {
         </>
     )
 }
+
+export default Form
