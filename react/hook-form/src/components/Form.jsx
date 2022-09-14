@@ -138,7 +138,16 @@ const Form = props => {
                         ""
                     }
                 </div>
-                <input type="submit" value="Create User"/>
+                {
+                    firstNameError || firstName.length < 1 ||
+                    lastNameError || lastName.length < 1 ||
+                    emailError || email.length < 1 ||
+                    passwordError || password.length < 1 ||
+                    confirmPasswordError || confirmPassword.length < 1 ?
+                    <input type="submit" value="Create User" disabled/> :
+                    <input type="submit" value="Create User" />
+
+                }
             </form>
             <p>Your Form Data</p>
             <div>
