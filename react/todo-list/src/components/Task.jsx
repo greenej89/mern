@@ -2,11 +2,11 @@ import {useState} from 'react'
 
 const Task = ({todoItem, index, tasks, setTasks}) => {
     const {task, isComplete} = todoItem
-    const [isChecked, setIsChecked] = useState(isComplete)
 
     const handleCheckbox = (e) => {
-        tasks[index].isComplete = !tasks[index].isComplete
-        setIsChecked(tasks[index].isComplete)
+        const newTasklist =[...tasks]
+        newTasklist[index].isComplete = !newTasklist[index].isComplete
+        setTasks(newTasklist)
     }
 
     const deleteTask = (e) => {
