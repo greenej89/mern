@@ -4,10 +4,7 @@ import Form from './components/Form'
 import Task from './components/Task'
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {task: "completedTask1", isComplete: true}, 
-    {task: "incompleteTask1", isComplete: false}
-  ])
+  const [tasks, setTasks] = useState([])
   return (
     <div className="container py-3 px-5">
       <h1>To-Do List</h1>
