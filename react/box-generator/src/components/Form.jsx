@@ -1,7 +1,7 @@
 import {useState} from 'react'
 
 const Form = ({boxes, setBoxes}) => {
-    const [color, setColor] = useState('')
+    const [color, setColor] = useState('#000000')
     const [size, setSize] =useState('')
     const [colorError, setColorError] = useState('')
     const [sizeError, setSizeError] = useState('')
@@ -11,7 +11,7 @@ const Form = ({boxes, setBoxes}) => {
         if( color && size ) {
             const box = { size, color } 
             setBoxes([...boxes, box])
-            setColor('')
+            setColor('#000000')
             setSize('')
         } 
         if( !color ){
