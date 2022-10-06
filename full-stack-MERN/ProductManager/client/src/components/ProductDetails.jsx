@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react' 
 import axios from 'axios' 
-import { Link, useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
-const ProductDetails = () => {
+const ProductDetails = ({deleteProduct}) => {
 
   const [product, setProduct] = useState({})
   const {id} = useParams()
+  const navigate = useNavigate()
 
   useEffect(()=>{
     axios.get(`http://localhost:8000/api/products/${id}`)
@@ -20,6 +21,12 @@ const ProductDetails = () => {
       <h2>{product.title}</h2>
       <p>Price: {product.price}</p>
       <p>Description: {product.description}</p>
+      <button className='col-1 btn btn-danger ms-2' 
+        onClick={ e => {
+          deleteProduct(product._id)
+          navigate('/api')
+        }} 
+        >Delete</button>
     </div>
   )
 }

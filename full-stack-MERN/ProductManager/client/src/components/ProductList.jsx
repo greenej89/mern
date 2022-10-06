@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect } from "react"
 import { Link } from 'react-router-dom'
 
-const ProductList = ({productList, setProductList}) => {
+const ProductList = ({productList, setProductList, deleteProduct}) => {
 
   useEffect(()=> {
     axios.get('http://localhost:8000/api/products')
@@ -12,12 +12,6 @@ const ProductList = ({productList, setProductList}) => {
       })
       .catch( err => console.log(err) )
   }, [])
-
-  const deleteProduct = productId => {
-    axios.delete('http://localhost:8000/api/products/' + productId)
-      .then( confirmDelete => console.log('Deleted product', confirmDelete))
-      .catch( err => console.log( err ) )
-  }
 
   return (
     <div>
