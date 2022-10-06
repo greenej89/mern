@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const PersonForm = () => {
+const ProductForm = ({productList, setProductList}) => {
 
     const [title, setTitle] = useState('')
     const [price, setPrice] = useState(0)
@@ -14,8 +14,12 @@ const PersonForm = () => {
             price,
             description
         })
-            .then( res => console.log(res.data))
+            .then( res => {
+                console.log(res.data)
+                setProductList([...productList, res.data])
+            })
             .catch( err => console.log(err))
+        
     }
     return(
         <>
@@ -54,4 +58,4 @@ const PersonForm = () => {
     )
 }
 
-export default PersonForm
+export default ProductForm
